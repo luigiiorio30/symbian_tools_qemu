@@ -14,7 +14,7 @@ Original work by Symbian Foundation & contrubors.
 
 ## Building
 1) Configure QEMU
-`./configure --target-list=arm-softmmu --with_python="your python 2.6 installation directory" --audio-drv-list="sdl" --prefix="directory where qemu should be installed"`
+`./configure --target-list=arm-softmmu --with-python="your python 2.6 installation directory" --audio-drv-list="sdl" --prefix="directory where qemu should be installed"`
 
 2) Build and install QEMU
 `make install`
