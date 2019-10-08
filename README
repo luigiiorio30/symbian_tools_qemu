@@ -1,3 +1,33 @@
-Read the documentation in qemu-doc.html.
+# Symbian QEmu tool
+A fork of QEmu 0.9.1-1 with SymbianOS emulation support (also known as sysborg).
 
-Fabrice Bellard.
+Original work by Symbian Foundation & contrubors.
+
+## List of changes
+- Wiped tap-win32.c as it's impossible to build due to DDK issues
+- Fixed uintX_t/intX_t typedefs for newer compilers (that does supply stdint.h)
+- Fixed linking of Python 2.6 64bit variant
+
+## Requirements
+- POSIX compatible system (or MinGW for Windows)
+- Python 2.6
+
+## Building
+1) Configure QEMU
+`./configure --target-list=arm-softmmu --with_python="your python 2.6 installation directory" --audio-drv-list="sdl" --prefix="directory where qemu should be installed"`
+
+2) Build and install QEMU
+`make install`
+
+3) Build NVMemmory
+`make -C nvmemmory` or open `nvmemmory.sln` for Visual Studio
+
+4) Copy NVMemmory generated dynamic link library into the foldere where QEmu was installed (the one specified with --prefix)
+
+## Running
+1) Add "Source directory of QEmu/plugins" to your PYTHONPATH environment variable.
+
+2) Launch QEmu
+`qemu-system-arm -M syborg.dtb -kernel SYBORGARMV5(D).img`
+
+(NOTE: dtb and img files are not compiled or provided here)
