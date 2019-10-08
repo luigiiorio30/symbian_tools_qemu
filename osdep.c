@@ -48,6 +48,16 @@
 #include "qemu_socket.h"
 
 #if defined(_WIN32)
+
+#ifdef __MINGW32__
+/* mingw32 needs ffs for compilations without optimization. */
+int ffs(int i)
+{
+    /* Use gcc's builtin ffs. */
+    return __builtin_ffs(i);
+}
+#endif
+
 void *qemu_memalign(size_t alignment, size_t size)
 {
     return VirtualAlloc(NULL, size, MEM_COMMIT, PAGE_READWRITE);
