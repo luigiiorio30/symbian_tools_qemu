@@ -1037,8 +1037,13 @@ fi
 # Python probe
 if [ -n "$with_python" ] ; then
   # Hardcoded hack for windows.
-  PYTHON_CFLAGS="-I$with_python/include"
-  PYTHON_LIBS="-L$with_python/libs -lpython26"
+  if test "$mingw32" = "yes" ; then
+	PYTHON_CFLAGS="-I$with_python/include"
+	PYTHON_LIBS="-L$with_python/libs -lpython26"
+  else
+	PYTHON_CFLAGS="-I$with_python/include/python2.6"
+	PYTHON_LIBS="-L$with_python/lib -lpython2.6 -pthread -lutil -ldl -lm"
+  fi
   
   if test "$mingw32" = "yes" ; then
     if test "$cpu" = "x86_64" ; then
