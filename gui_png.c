@@ -167,7 +167,7 @@ static void read_png_file(const char* file_name, png_image_data_t *png_image_dat
 
 	if (setjmp(png_jmpbuf(png_ptr)))
 		abort_("[read_png_file] Error during init_io");
-   png_read_png(png_ptr, info_ptr, PNG_TRANSFORM_STRIP_ALPHA, png_voidp_NULL);
+   png_read_png(png_ptr, info_ptr, PNG_TRANSFORM_STRIP_ALPHA, NULL);
 
 	if (setjmp(png_jmpbuf(png_ptr)))
 		abort_("[read_png_file] Error during init_io");
@@ -193,7 +193,7 @@ static void read_png_file(const char* file_name, png_image_data_t *png_image_dat
         }
     }
 
-    png_destroy_read_struct(&png_ptr, &info_ptr, png_infopp_NULL);
+    png_destroy_read_struct(&png_ptr, &info_ptr, NULL);
 
     fclose(fp);
 }
