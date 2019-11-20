@@ -11,7 +11,7 @@
 # Description:
 # Bottom level Makefile to build libnvmemmory.so in the current directory
 
-include ../../../qemu-symbian-svp/config-host.mak
+include ../config-host.mak
 
 sources := nvmemmory.cpp
 objs := nvmemmory.o
@@ -27,6 +27,7 @@ cflags+="-O0 -g"
 else
 cflags+=-O2
 endif
+cflags+="-I commoninc"
 
 vpath %.cpp ..
 
