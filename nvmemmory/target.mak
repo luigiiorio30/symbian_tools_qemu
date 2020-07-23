@@ -28,6 +28,7 @@ else
 cflags+=-O2
 endif
 cflags+="-I commoninc"
+cflags+=$(ARCH_CFLAGS)
 
 vpath %.cpp ..
 
