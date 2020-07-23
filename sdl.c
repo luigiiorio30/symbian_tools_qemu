@@ -545,7 +545,7 @@ void sdl_display_init(int full_screen, int no_frame)
 
     flags = SDL_INIT_VIDEO | SDL_INIT_NOPARACHUTE;
     if (SDL_Init (flags)) {
-        fprintf(stderr, "Could not initialize SDL - exiting\n");
+        fprintf(stderr, "Could not initialize SDL - exiting\nSDL error: %s\n", SDL_GetError());
         exit(1);
     }
 
