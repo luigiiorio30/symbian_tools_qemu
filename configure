@@ -1039,10 +1039,10 @@ if [ -n "$with_python" ] ; then
   # Hardcoded hack for windows.
   if test "$mingw32" = "yes" ; then
 	PYTHON_CFLAGS="-I$with_python/include"
-	PYTHON_LIBS="-L$with_python/libs -lpython26"
+	PYTHON_LIBS="-L$with_python/libs -lpython27"
   else
-	PYTHON_CFLAGS="-I$with_python/include/python2.6"
-	PYTHON_LIBS="-L$with_python/lib -lpython2.6 -pthread -lutil -ldl -lm"
+	PYTHON_CFLAGS="-I$with_python/include/python2.7"
+	PYTHON_LIBS="-L$with_python/lib -lpython2.7 -pthread -lutil -ldl -lm"
   fi
   
   if test "$mingw32" = "yes" ; then
